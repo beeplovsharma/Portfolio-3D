@@ -73,8 +73,8 @@ export const config = {
     address: "Bangalore",
     socials: {
       linkedin: "https://www.linkedin.com/in/beeplov-sharma-017a22237/",
-      twitter: "https://twitter.com/wawasensei",
+      twitter: "https://twitter.com/beeplovsharma",
     },
-    mail: "contact@wawasensei.dev",
+    mail: "beeplov007@gmail.com",
   },
 };
