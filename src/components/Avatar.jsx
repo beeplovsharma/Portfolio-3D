@@ -12,23 +12,22 @@ import { useMobile } from '../hooks/useMobile'
 
 
 export function Avatar(props) {
-  const group = React.useRef()
-  const { scene, animations: dancingAnimation } = useGLTF('/models/beeplov.glb')
+  const { scene, animations } = useGLTF('/models/beeplov.glb')
 
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene])
   const { nodes, materials } = useGraph(clone)
 
   const { animations: idleAnimation } = useFBX("/animations/Idle.fbx");
   const { animations: walkingAnimation } = useFBX("/animations/Walking.fbx");
-  const { actions } = useAnimations(
-    [idleAnimation[0], walkingAnimation[0], dancingAnimation[0]],
-    group
-  );
 
   idleAnimation[0].name = "Idle";
   walkingAnimation[0].name = "Walking";
-  dancingAnimation[0].name = "Brag_n_Claps_Clean";
 
+  const group = React.useRef()
+  const { actions } = useAnimations(
+    [idleAnimation[0], walkingAnimation[0]],
+    group
+  );
 
   const [animation, setAnimation] = useState("Idle");
 
